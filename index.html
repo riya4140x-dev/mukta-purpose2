@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mukta ❤️ Aryan</title>
+  <style>
+    * { box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      animation: fadeIn 1.5s ease;
+    }
+    h1, h2 {
+      margin-bottom: 20px;
+    }
+    p {
+      max-width: 700px;
+      font-size: 1.2rem;
+      line-height: 1.7;
+    }
+    .heart {
+      font-size: 80px;
+      animation: heartbeat 1.5s infinite;
+    }
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      background: #fff;
+      color: #ff4b6e;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+    button:hover {
+      transform: scale(1.05);
+      background: #ffe6ec;
+    }
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.1); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Falling Roses */
+    .rose {
+      position: fixed;
+      top: -50px;
+      font-size: 30px;
+      animation: fall linear infinite;
+      z-index: 999;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Music -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-piano-106.mp3" type="audio/mpeg">
+  </audio>
+
+
+  <section id="page1">
+    <h1>Mukta 🌸</h1>
+    <p>
+      From the moment you came into my life, everything felt brighter.
+      Every smile of yours became my favorite view.
+    </p>
+    <div class="heart">❤️</div>
+    <button onclick="nextPage('page2')">Next ➜</button>
+  </section>
+
+  <section id="page2" style="display:none;">
+    <h2>Our Story ✨</h2>
+    <p>
+      We started as two simple souls,
+      but somehow destiny decided to write a beautiful story.
+      Laughs, talks, memories — all became special because of you.
+    </p>
+    <button onclick="nextPage('page3')">Next ➜</button>
+  </section>
+
+  <section id="page3" style="display:none;">
+    <h2>What You Mean To Me 💖</h2>
+    <p>
+      Mukta, you are my comfort, my happiness,
+      and the reason my days feel complete.
+      With you, even ordinary moments feel magical.
+    </p>
+    <button onclick="nextPage('page4')">Next ➜</button>
+  </section>
+
+  <section id="page4" style="display:none;">
+    <h2>Propose Day 💍</h2>
+    <p>
+      On this special day, I want to ask you something
+      straight from my heart.
+    </p>
+    <div class="heart">💞</div>
+    <button onclick="nextPage('page5')">Next ➜</button>
+  </section>
+
+  <section id="page5" style="display:none;">
+    <h1>Mukta ❤️</h1>
+    <p style="font-size:1.4rem;">
+      Will you be mine today, tomorrow,
+      and for all the days to come?
+    </p>
+
+    <button onclick="yesClicked()">YES 💖</button>
+    <button style="margin-left:15px;" onclick="noClicked()">NO 🙈</button>
+
+    <h2 id="response" style="margin-top:25px;"></h2>
+    <h2>— Yours, Aryan</h2>
+    <div class="heart">💘</div>
+  </section>
+
+  <script>
+    function nextPage(id) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'flex';
+      window.scrollTo(0, 0);
+    }
+      function createRoses() {
+      for (let i = 0; i < 20; i++) {
+        const rose = document.createElement('div');
+        rose.className = 'rose';
+        rose.innerHTML = '🌹';
+        rose.style.left = Math.random() * 100 + 'vw';
+        rose.style.animationDuration = (3 + Math.random() * 5) + 's';
+        document.body.appendChild(rose);
+      }
+    }
+
+    function yesClicked() {
+      document.getElementById('response').innerText = 'Yayyy!! 💞 I knew it! Forever starts now 💍';
+      createRoses();
+    }
+
+    function noClicked() {
+      document.getElementById('response').innerText = 'Hehe 😅 Try again… My heart says YES 💖';
+    }
+
+    document.body.addEventListener('click', () => {
+      const music = document.getElementById('bgMusic');
+      if (music.paused) music.play();
+    });
+  </script>
+
+</body>
+</html>
