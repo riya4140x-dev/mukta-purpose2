@@ -123,10 +123,71 @@ button {
 <audio id="music" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2c1b0d5e45.mp3" loop></audio>
 
 <script>
+<style>
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #ff8fa3, #ff4f7a);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  font-family: 'Pacifico', cursive;
+  z-index: 9999;
+  text-align: center;
+}
+
+.overlay h1 {
+  font-size: 3rem;
+  animation: pop 1s ease infinite alternate;
+}
+
+@keyframes pop {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+.firework {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  animation: explode 1.5s infinite;
+}
+
+@keyframes explode {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(4); opacity: 0; }
+}
+</style>
+
+<div class="overlay" id="overlay">
+  <h1>Mukta said YES 💍💖</h1>
+  <p>Forever starts now…</p>
+</div>
+
+<script>
 function yesClicked() {
   document.getElementById('music').play();
-  navigator.vibrate([300,100,300]);
-  alert("Mukta said YES 💍💖");
+  navigator.vibrate([200,100,200,100,300]);
+
+  const overlay = document.getElementById('overlay');
+  overlay.style.display = 'flex';
+
+  // fireworks
+  for (let i = 0; i < 25; i++) {
+    const fw = document.createElement('div');
+    fw.className = 'firework';
+    fw.style.left = Math.random() * 100 + 'vw';
+    fw.style.top = Math.random() * 100 + 'vh';
+    fw.style.background = `hsl(${Math.random()*360},100%,70%)`;
+    overlay.appendChild(fw);
+    setTimeout(() => fw.remove(), 1500);
+  }
+}
+</script>
+
 }
 </script>
 
