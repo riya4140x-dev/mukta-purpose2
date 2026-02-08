@@ -2,174 +2,237 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Mukta ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Mukta ❤️ Aryan</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Comic Sans MS', cursive;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Comic Sans MS', cursive;
 }
 
-body {
-  height: 100vh;
-  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+body{
+  height:100vh;
+  width:100vw;
+  background:linear-gradient(180deg,#ffcad4,#ffe5ec);
+  overflow:hidden;
 }
 
-.container {
-  text-align: center;
-  color: #fff;
-  padding: 20px;
-}
-
-h1 {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-}
-
-h2 {
-  font-size: 1.4rem;
-  margin-bottom: 20px;
-}
-
-.scene {
-  position: relative;
-  width: 220px;
-  height: 200px;
-  margin: auto;
-}
-
-/* Simple hugging animation */
-.person {
-  position: absolute;
-  bottom: 0;
-  width: 90px;
-  height: 160px;
-  border-radius: 50%;
-}
-
-.boy {
-  background: #6fa8dc;
-  left: 0;
-  animation: hug 2s infinite alternate;
-}
-
-.girl {
-  background: #f6b1c3;
-  right: 0;
-  animation: hug 2s infinite alternate-reverse;
-}
-
-@keyframes hug {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(20px); }
-}
-
-button {
-  margin-top: 20px;
-  padding: 12px 30px;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 30px;
-  background: #ff4d6d;
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-button:hover {
-  transform: scale(1.05);
-}
-
-/* Rose petals */
-.rose {
-  position: fixed;
-  top: -50px;
-  font-size: 24px;
-  animation: fall linear forwards;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0;
+/* Mobile only */
+@media (min-width:768px){
+  body::before{
+    content:"📱 Open on mobile only ❤️";
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#ffcad4;
+    font-size:1.5rem;
+    color:white;
+    z-index:999;
   }
 }
 
-/* Floating hearts */
-.heart {
-  position: absolute;
-  color: #ff4d6d;
-  animation: float 5s infinite;
+.container{
+  height:100vh;
+  width:100vw;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-evenly;
+  text-align:center;
+  color:white;
+  padding:15px;
 }
 
-@keyframes float {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(-100vh); opacity: 0; }
+h1{font-size:2.4rem;}
+h2{font-size:1.2rem;}
+
+/* Cute couple */
+.scene{
+  position:relative;
+  width:260px;
+  height:240px;
+}
+
+.couple{
+  position:absolute;
+  bottom:0;
+  width:110px;
+  height:180px;
+  border-radius:55px;
+  animation:float 3s ease-in-out infinite;
+}
+
+.boy{
+  background:#7db7ff;
+  left:0;
+}
+
+.girl{
+  background:#ff9acb;
+  right:0;
+}
+
+.face{
+  position:absolute;
+  top:25px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:1.8rem;
+}
+
+.hands{
+  position:absolute;
+  top:80px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:1.4rem;
+  animation:hug 2s infinite alternate;
+}
+
+@keyframes hug{
+  from{transform:translateX(-10px);}
+  to{transform:translateX(10px);}
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-12px);}
+}
+
+/* Buttons */
+.buttons{
+  position:relative;
+  width:100%;
+  height:120px;
+}
+
+button{
+  padding:14px 32px;
+  border-radius:30px;
+  border:none;
+  font-size:1.2rem;
+}
+
+#yes{
+  background:#ff4d6d;
+  color:white;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+#no{
+  position:absolute;
+  background:white;
+  color:#ff4d6d;
+  left:60%;
+  top:40px;
+}
+
+/* Effects */
+.rose,.heart,.fire{
+  position:fixed;
+  top:-30px;
+  animation:fall linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* Love screen */
+.love{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:linear-gradient(180deg,#ffb3c6,#ffd6e0);
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  font-size:1.6rem;
+  padding:20px;
 }
 </style>
 </head>
 
 <body>
 
-<audio id="bgMusic" loop>
-  <!-- Replace this with your romantic song -->
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_2b2a8a9f1c.mp3" type="audio/mpeg">
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_2b2a8a9f1c.mp3">
 </audio>
 
-<div class="container">
+<div class="container" id="main">
   <h1>💖 Mukta 💖</h1>
-  <h2>Aryan has something special for you 🥰</h2>
+  <h2>Aryan has something special for you 🥹</h2>
 
   <div class="scene">
-    <div class="person boy"></div>
-    <div class="person girl"></div>
+    <div class="couple boy">
+      <div class="face">😊</div>
+      <div class="hands">🤍</div>
+    </div>
+    <div class="couple girl">
+      <div class="face">🥰</div>
+      <div class="hands">🤍</div>
+    </div>
   </div>
 
   <h2>Will you be my Valentine? 💍</h2>
 
-  <button onclick="sayYes()">YES ❤️</button>
+  <div class="buttons">
+    <button id="yes" onclick="yesClick()">YES 💕</button>
+    <button id="no" onmouseover="runNo()">NO 🙈</button>
+  </div>
+</div>
+
+<div class="love" id="love">
+  💖 Mukta & Aryan 💖<br><br>
+  You just made me the happiest person 🥹💍<br>
+  Forever starts today 💑
 </div>
 
 <script>
-function sayYes() {
-  document.getElementById("bgMusic").play();
-
-  for (let i = 0; i < 30; i++) {
-    let rose = document.createElement("div");
-    rose.className = "rose";
-    rose.innerHTML = "🌹";
-    rose.style.left = Math.random() * 100 + "vw";
-    rose.style.animationDuration = (Math.random() * 3 + 2) + "s";
-    document.body.appendChild(rose);
-
-    setTimeout(() => {
-      rose.remove();
-    }, 5000);
-  }
-
-  alert("Yayyy 💕 Mukta & Aryan forever 💑");
+function runNo(){
+  const n=document.getElementById("no");
+  n.style.left=Math.random()*70+"%";
+  n.style.top=Math.random()*80+"px";
 }
 
-/* hearts */
-setInterval(() => {
-  let heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (Math.random() * 20 + 10) + "px";
-  document.body.appendChild(heart);
+function yesClick(){
+  document.getElementById("music").play();
+  if(navigator.vibrate) navigator.vibrate([200,100,200]);
 
-  setTimeout(() => {
-    heart.remove();
-  }, 5000);
-}, 600);
+  for(let i=0;i<30;i++){
+    let r=document.createElement("div");
+    r.className="rose";
+    r.innerHTML="🌹";
+    r.style.left=Math.random()*100+"vw";
+    r.style.animationDuration=(Math.random()*3+2)+"s";
+    document.body.appendChild(r);
+    setTimeout(()=>r.remove(),5000);
+  }
+
+  for(let i=0;i<25;i++){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(Math.random()*3+2)+"s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),5000);
+  }
+
+  setTimeout(()=>{
+    document.getElementById("main").style.display="none";
+    document.getElementById("love").style.display="flex";
+  },1500);
+}
 </script>
 
 </body>
